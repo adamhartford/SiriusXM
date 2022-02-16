@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Adam Hartford (adamhartford@outlook.com)     https://www.github.com/adamhartford/SiriusXM</string>
+	<string>https://www.github.com/adamhartford/SiriusXM</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>NSMainStoryboardFile</key>
