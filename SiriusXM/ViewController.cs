@@ -19,7 +19,7 @@ namespace SiriusXM
             base.ViewDidLoad();
 
             var config = new WKWebViewConfiguration();
-            config.Preferences.SetValueForKey(NSObject.FromObject(true), new NSString("developerExtrasEnabled"));
+            config.Preferences.SetValueForKey(FromObject(true), new NSString("developerExtrasEnabled"));
 
             _browser = new WKWebView(View.Frame, config);
             _browser.AutoresizingMask = NSViewResizingMask.HeightSizable | NSViewResizingMask.WidthSizable;
@@ -33,29 +33,16 @@ namespace SiriusXM
             View.AddSubview(_browser);
         }
 
-        public override NSObject RepresentedObject
-        {
-            get
-            {
-                return base.RepresentedObject;
-            }
-            set
-            {
-                base.RepresentedObject = value;
-                // Update the view, if already loaded.
-            }
-        }
-
         [Export("webView:decidePolicyForNavigationAction:decisionHandler:")]
         public void DecidePolicy(WKWebView webView, WKNavigationAction navigationAction, Action<WKNavigationActionPolicy> decisionHandler)
         {
-            if (navigationAction.TargetFrame != null)
+            if (navigationAction.TargetFrame == null)
             {
-                decisionHandler(WKNavigationActionPolicy.Allow);
+                NSWorkspace.SharedWorkspace.OpenUrl(navigationAction.Request.Url);
                 return;
             }
-
-            NSWorkspace.SharedWorkspace.OpenUrl(navigationAction.Request.Url);
+            
+            decisionHandler(WKNavigationActionPolicy.Allow);
         }
     }
 }
