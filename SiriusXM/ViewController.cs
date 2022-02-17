@@ -38,6 +38,7 @@ namespace SiriusXM
         {
             if (navigationAction.TargetFrame == null)
             {
+                decisionHandler(WKNavigationActionPolicy.Cancel);
                 NSWorkspace.SharedWorkspace.OpenUrl(navigationAction.Request.Url);
                 return;
             }
