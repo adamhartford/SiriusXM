@@ -45,5 +45,17 @@ namespace SiriusXM
                 // Update the view, if already loaded.
             }
         }
+
+        [Export("webView:decidePolicyForNavigationAction:decisionHandler:")]
+        public void DecidePolicy(WKWebView webView, WKNavigationAction navigationAction, Action<WKNavigationActionPolicy> decisionHandler)
+        {
+            if (navigationAction.TargetFrame != null)
+            {
+                decisionHandler(WKNavigationActionPolicy.Allow);
+                return;
+            }
+
+            NSWorkspace.SharedWorkspace.OpenUrl(navigationAction.Request.Url);
+        }
     }
 }
