@@ -1,13 +1,20 @@
 window.unofficialClient  = {
     playPause: function() {
-        document.getElementsByClassName('play-pause-btn')[0].click(); 
+        this._private.clickButton('play-pause-btn');
     },
     
     skipForward: function() {
-        document.getElementsByClassName('skip-forward-btn')[0].click();
+        this._private.clickButton('skip-forward-btn');
     },
     
     skipBack: function() {
-        document.getElementsByClassName('skip-back-btn')[0].click();
+        this._private.clickButton('skip-back-btn');
+    },
+    
+    _private: {
+        clickButton: function(classNames) {
+            var btns = document.getElementsByClassName(classNames);
+            for (var i in btns) btns[i].click();
+        }
     }
 };
