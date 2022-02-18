@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.IO;
 using AppKit;
 using Foundation;
 using WebKit;
@@ -31,6 +31,14 @@ namespace SiriusXM
 
             _browser.LoadRequest(new NSUrlRequest(new NSUrl("https://player.siriusxm.com")));
             View.AddSubview(_browser);
+
+            var appDelegate = (AppDelegate)NSApplication.SharedApplication.Delegate;
+            appDelegate.ViewController = this;
+        }
+        
+        public void RunJS(string js)
+        {
+            _browser.EvaluateJavaScript(js, null);
         }
 
         [Export("webView:decidePolicyForNavigationAction:decisionHandler:")]
@@ -44,6 +52,14 @@ namespace SiriusXM
             }
             
             decisionHandler(WKNavigationActionPolicy.Allow);
+        }
+
+        [Export("webView:didFinishNavigation:")]
+        public void DidFinishNavigation(WebKit.WKWebView webView, WebKit.WKNavigation navigation)
+        {
+            var path = NSBundle.MainBundle.PathForResource("unofficialClient", "js");
+            var js = File.ReadAllText(path);
+            RunJS(js);
         }
     }
 }

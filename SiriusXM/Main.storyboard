@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -55,6 +56,31 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Playback" id="bBu-WO-8F3" userLabel="Playback">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Playback" identifier="Playback" id="us8-PQ-hZc">
+                                    <items>
+                                        <menuItem title="Play/Pause" id="S5P-fU-5DB">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="ClickedPlayPause:" target="Voe-Tx-rLC" id="Bn4-fF-Sjk"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Skip Forward" id="5OZ-oY-p4X">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="ClickedSkipForward:" target="Voe-Tx-rLC" id="KRu-8n-fZw"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Skip Back" id="yzn-Vc-GCu">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="ClickedSkipBack:" target="Voe-Tx-rLC" id="PEv-RG-Ze5"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="Window" id="aUF-d1-5bR">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Window" systemMenu="window" id="Td7-aD-5lo">
@@ -84,6 +110,7 @@
                     </menu>
                     <connections>
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
+                        <outlet property="dockMenu" destination="us8-PQ-hZc" id="F9R-a8-bg7"/>
                     </connections>
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate"/>

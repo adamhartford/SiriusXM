@@ -1,4 +1,5 @@
-﻿using AppKit;
+﻿using System;
+using AppKit;
 using Foundation;
 
 namespace SiriusXM
@@ -6,6 +7,8 @@ namespace SiriusXM
     [Register("AppDelegate")]
     public class AppDelegate : NSApplicationDelegate
     {
+        public ViewController ViewController { get; set; }
+        
         public AppDelegate()
         {
         }
@@ -32,6 +35,24 @@ namespace SiriusXM
             }
 
             return true;
+        }
+
+        [Action("ClickedPlayPause:")]
+        public void ClickedPlayPause(NSObject sender)
+        {
+            ViewController?.RunJS("unofficialClient.playPause();");
+        }
+        
+        [Action("ClickedSkipForward:")]
+        public void ClickedSkipForward(NSObject sender)
+        {
+            ViewController?.RunJS("unofficialClient.skipForward();");
+        }
+        
+        [Action("ClickedSkipBack:")]
+        public void ClickedSkipBack(NSObject sender)
+        {
+            ViewController?.RunJS("unofficialClient.skipBack();");
         }
     }
 }
