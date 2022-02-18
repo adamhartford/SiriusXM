@@ -6,7 +6,7 @@ using WebKit;
 
 namespace SiriusXM
 {
-    public partial class ViewController : NSViewController, IWKNavigationDelegate, IWKUIDelegate
+    public partial class ViewController : ViewControllerBase, IWKNavigationDelegate, IWKUIDelegate
     {
         private WKWebView _browser;
 
@@ -32,8 +32,7 @@ namespace SiriusXM
             _browser.LoadRequest(new NSUrlRequest(new NSUrl("https://player.siriusxm.com")));
             View.AddSubview(_browser);
 
-            var appDelegate = (AppDelegate)NSApplication.SharedApplication.Delegate;
-            appDelegate.ViewController = this;
+            AppDelegate.ViewController = this;
         }
         
         public void RunJS(string js)
