@@ -9,12 +9,17 @@ using System.CodeDom.Compiler;
 
 namespace SiriusXM
 {
-	[Register ("ViewController")]
-	partial class ViewController
+	partial class AppDelegate
 	{
+		[Outlet]
+		AppKit.NSMenu PlaybackMenu { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (PlaybackMenu != null) {
+				PlaybackMenu.Dispose ();
+				PlaybackMenu = null;
+			}
 		}
 	}
 }

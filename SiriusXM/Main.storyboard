@@ -23,7 +23,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <connections>
+                                                <segue destination="J9j-zR-fAR" kind="show" identifier="ShowPreferences" id="G0c-PR-QXx"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -60,22 +64,53 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Playback" identifier="Playback" id="us8-PQ-hZc">
                                     <items>
-                                        <menuItem title="Play/Pause" id="S5P-fU-5DB">
+                                        <menuItem title="Play/Pause" identifier="PlayPause" id="S5P-fU-5DB">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="ClickedPlayPause:" target="Voe-Tx-rLC" id="Bn4-fF-Sjk"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Skip Forward" id="5OZ-oY-p4X">
+                                        <menuItem title="Skip Forward" identifier="SkipForward" id="5OZ-oY-p4X">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="ClickedSkipForward:" target="Voe-Tx-rLC" id="KRu-8n-fZw"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Skip Back" id="yzn-Vc-GCu">
+                                        <menuItem title="Skip Back" identifier="SkipBack" id="yzn-Vc-GCu">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="ClickedSkipBack:" target="Voe-Tx-rLC" id="PEv-RG-Ze5"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Navigate" id="plN-cz-eqg">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Navigate" id="Z73-eH-Rjg">
+                                    <items>
+                                        <menuItem title="Home" id="scg-IP-uxP">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="ClickedHome:" target="Voe-Tx-rLC" id="Qla-w5-d62"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Reload" id="oSG-IR-mLq">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="ClickedReload:" target="Voe-Tx-rLC" id="7Ku-bO-4dr"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Back" id="nKf-Gy-MA5">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="ClickedBack:" target="Voe-Tx-rLC" id="pdL-ai-FQ7"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Forward" id="yij-LJ-0Fc">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="ClickedForward:" target="Voe-Tx-rLC" id="YJF-3r-xIu"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -110,10 +145,13 @@
                     </menu>
                     <connections>
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
-                        <outlet property="dockMenu" destination="us8-PQ-hZc" id="F9R-a8-bg7"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
+                    <connections>
+                        <outlet property="PlaybackMenu" destination="us8-PQ-hZc" id="ytc-2O-nm1"/>
+                    </connections>
+                </customObject>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,6 +177,61 @@
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="DYE-tV-5bN">
+            <objects>
+                <windowController id="J9j-zR-fAR" sceneMemberID="viewController">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="m67-gK-8fm">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+                        <rect key="contentRect" x="604" y="462" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="3440" height="1415"/>
+                        <view key="contentView" id="9zb-wc-yXF">
+                            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </view>
+                        <connections>
+                            <outlet property="delegate" destination="J9j-zR-fAR" id="baF-UC-aLA"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="vx1-id-Zwy" kind="relationship" relationship="window.shadowedContentViewController" id="akU-dH-KSF"/>
+                    </connections>
+                </windowController>
+                <customObject id="XUk-hv-R6u" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="680" y="243"/>
+        </scene>
+        <!--Preferences View Controller-->
+        <scene sceneID="OYC-gf-sD3">
+            <objects>
+                <viewController id="vx1-id-Zwy" customClass="PreferencesViewController" sceneMemberID="viewController">
+                    <view key="view" id="WV9-Gh-pFa">
+                        <rect key="frame" x="0.0" y="0.0" width="445" height="193"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="irn-SK-dG3">
+                                <rect key="frame" x="18" y="156" width="407" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Enable notifications" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Ops-Io-gbj">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="EnableNotificationsChanged:" target="vx1-id-Zwy" id="ivT-gP-1xb"/>
+                                    <binding destination="cAH-Nx-uMP" name="value" keyPath="values.EnableNotifications" id="v3C-ZP-VlQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="EnableNotifications" destination="irn-SK-dG3" id="eZX-ng-Ipu"/>
+                    </connections>
+                </viewController>
+                <customObject id="opj-Gj-0iP" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="cAH-Nx-uMP"/>
+            </objects>
+            <point key="canvasLocation" x="1212.5" y="243.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">

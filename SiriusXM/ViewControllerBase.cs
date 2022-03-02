@@ -10,5 +10,12 @@ namespace SiriusXM
         protected ViewControllerBase(IntPtr handle) : base(handle)
         {
         }
+
+        protected void ShowAlert(string message)
+        {
+            var alert = new NSAlert { MessageText = message };
+            alert.AddButton("OK");
+            alert.BeginSheet(View.Window);
+        }
     }
 }

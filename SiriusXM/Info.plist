@@ -28,5 +28,9 @@
 	<string>Main</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>CFBundleDisplayName</key>
+	<string>SiriusXM (UNOFFICIAL)</string>
+	<key>NSUserNotificationAlertStyle</key>
+	<string>alert</string>
 </dict>
 </plist>
