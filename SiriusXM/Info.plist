@@ -31,6 +31,6 @@
 	<key>CFBundleDisplayName</key>
 	<string>SiriusXM (UNOFFICIAL)</string>
 	<key>NSUserNotificationAlertStyle</key>
-	<string>alert</string>
+	<string>banner</string>
 </dict>
 </plist>
