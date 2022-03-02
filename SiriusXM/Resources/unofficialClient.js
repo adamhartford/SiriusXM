@@ -12,13 +12,10 @@ window.unofficialClient  = {
     },
     
     getNowPlaying: function() {
-        const state = {
+        return {
             artistName: this._.getText('artist-name'),
             trackName: this._.getText('track-name')
         };
-        
-        console.log(JSON.stringify(state));
-        return state;
     },
 
     postMessage: function (handlerName, msg) {
@@ -59,5 +56,3 @@ window.unofficialClient  = {
 (function() {
     unofficialClient._.init();
 })();
-
-//#sourceURL=unofficialClient.js
