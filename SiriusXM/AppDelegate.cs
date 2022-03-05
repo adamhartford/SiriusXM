@@ -71,7 +71,6 @@ namespace SiriusXM
         [Action("ClickedHome:")]
         public void ClickedHome(NSObject sender)
         {
-            //ViewController?.RunJs("location.href = \"https://www.siriusxm.com/player?intcmp=GN_HEADER_NEW_ListenOnline\";");
             ViewController.Browser.LoadRequest(new NSUrlRequest(new NSUrl("https://player.siriusxm.com")));
         }
         
@@ -93,12 +92,10 @@ namespace SiriusXM
             ViewController?.RunJs("history.forward();");
         }
 
-        // public override NSMenu ApplicationDockMenu(NSApplication sender)
-        // {
-        //     var playPause = PlaybackMenu.Items.First(i => i.Identifier == "PlayPause");
-        //     playPause.Title = playPause.Title == "Play" ? "Pause" : "Play";
-        //     return PlaybackMenu;
-        // }
+        public override NSMenu ApplicationDockMenu(NSApplication sender)
+        {
+            return PlaybackMenu;
+        }
 
         public bool ValidateMenuItem(NSMenuItem menuItem)
         {
