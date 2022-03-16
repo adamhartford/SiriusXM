@@ -10,8 +10,12 @@ I do not like keeping audio players open in browser tabs. SiriusXM does not have
 * Playback controls via application menu and app icon
 * Optional notifications when song changes
 
-## Screenshots
+## Technical
+* Native macOS application written in C# using [Xamarin.Mac](https://docs.microsoft.com/en-us/xamarin/mac/)
+* Requires [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) and [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
+* I personally use [JetBrains Rider](https://www.jetbrains.com/rider/) instead of Visual Studio for Mac
 
+## Screenshots
 <div align="center">
 <div><img alt="Screen Shot" src="https://user-images.githubusercontent.com/2056763/154349497-1391246d-72f9-46a0-93ae-4bafe5c566d2.png"></div>
 <div><img alt="Icon" src="https://user-images.githubusercontent.com/2056763/154349660-5a8efbf8-a94a-47c9-815e-563aa5e1036a.png"></div>
