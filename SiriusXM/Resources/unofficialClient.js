@@ -1,4 +1,8 @@
 window.unofficialClient  = {
+    muteUnmute: function() {
+        this._.clickButton('mute-btn');
+    },
+    
     playPause: function() {
         this._.clickButton('play-pause-btn');
     },

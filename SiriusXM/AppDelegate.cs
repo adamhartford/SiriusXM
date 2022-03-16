@@ -49,6 +49,12 @@ namespace SiriusXM
 
             return true;
         }
+        
+        [Action("ClickedMuteUnmute:")]
+        public void ClickedMuteUnmute(NSObject sender)
+        {
+            ViewController?.RunJs("unofficialClient.muteUnmute();");
+        }
 
         [Action("ClickedPlayPause:")]
         public void ClickedPlayPause(NSObject sender)
