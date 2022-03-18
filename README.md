@@ -1,7 +1,7 @@
 # SiriusXM (UNOFFICIAL)
 UNOFFICIAL Dedicated SiriusXM Mac Application (SiriusXM subscription required)
 
-[Download Latest Version (1.2)](https://github.com/adamhartford/SiriusXM/releases/download/v1.2/SiriusXM.UNOFFICIAL.1.2.zip 'Download')
+[Download Latest Version (1.3)](https://github.com/adamhartford/SiriusXM/releases/download/v1.3/SiriusXM.UNOFFICIAL.1.3.zip 'Download')
 
 ## Why?
 I do not like keeping audio players open in browser tabs. SiriusXM does not have an official Mac app, so I've created an extremely basic unoffical one.
